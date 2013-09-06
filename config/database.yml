@@ -15,7 +15,7 @@ development:
   database: sso_development
   pool: 5
   username: root
-  password:
+  password: qmzp1029
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: sso_test
   pool: 5
   username: root
-  password:
+  password: qmzp1029
   socket: /var/run/mysqld/mysqld.sock
 
 production:
