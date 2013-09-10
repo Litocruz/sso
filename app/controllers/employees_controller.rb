@@ -11,6 +11,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(params[:employee])
     if @employee.save
+      sign_in @employee
       flash[:success] = "Nuevo Empleado Creado"
       redirect_to @employee
     else

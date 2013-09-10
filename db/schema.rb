@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130910142423) do
+ActiveRecord::Schema.define(:version => 20130910220405) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20130910142423) do
     t.integer  "document_number"
     t.string   "document_type"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
+  add_index "employees", ["remember_token"], :name => "index_employees_on_remember_token"
 
 end
