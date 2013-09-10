@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909235512) do
+ActiveRecord::Schema.define(:version => 20130910142423) do
 
   create_table "employees", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(:version => 20130909235512) do
     t.datetime "updated_at",      :null => false
     t.integer  "document_number"
     t.string   "document_type"
+    t.string   "password_digest"
   end
+
+  add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
 
 end
