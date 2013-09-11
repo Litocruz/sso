@@ -1,11 +1,12 @@
 <% provide(:title, 'Todos los Empleados') %>
 <h1>Todos los Empleados</h1>
+<p> Nuevo Empleado? <%= link_to "Alta Empleado!", create_path %></p>
 
 <%= will_paginate %>
 
 <!- 9.3.4 Partial Render ->
-<ul class="users">
-  <%= render @users %>
+<ul class="employees">
+  <%= render @employees %>
 </ul>
 
 <%= will_paginate %>
