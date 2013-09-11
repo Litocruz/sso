@@ -1,0 +1,11 @@
+<% provide(:title, 'Todos los Empleados') %>
+<h1>Todos los Empleados</h1>
+
+<%= will_paginate %>
+
+<!- 9.3.4 Partial Render ->
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>
