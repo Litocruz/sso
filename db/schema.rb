@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(:version => 20130911215013) do
     t.string   "sex"
     t.string   "address"
     t.boolean  "trainer"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "document_number"
     t.string   "document_type"
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin"
-    t.boolean  "status"
+    t.boolean  "status",          :default => true
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
