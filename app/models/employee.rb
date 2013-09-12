@@ -11,7 +11,6 @@ class Employee < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
   validates :document_type, presence: true
   validates :document_number, presence: true
-  validates :password, length: { minimum: 6 }
 
   private
     def create_remember_token
