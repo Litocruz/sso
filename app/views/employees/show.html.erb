@@ -8,5 +8,15 @@
   </h1>
   </section>
   </aside>
+
+  <div class="span8">
+    <% if @employee.driver_licenses.any? %>
+      <h3>Licencias de Conducir (<%= @employee.driver_licenses.count %>)</h3>
+      <ol class="driver_licenses">
+          <%= render @driver_licenses %>
+        </ol>
+      <%= will_paginate @driver_licenses %>
+    <% end %>
+  </div>
 </div>
 

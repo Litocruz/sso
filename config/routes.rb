@@ -1,6 +1,7 @@
 Sso::Application.routes.draw do
   resources :employees
   resources :sessions, only: [:new, :create, :destroy]
+  resources :driver_licenses
 
   root to: 'static_pages#home'
   match '/create', to: 'employees#new'

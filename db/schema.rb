@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911215013) do
+ActiveRecord::Schema.define(:version => 20130912201511) do
+
+  create_table "driver_licenses", :force => true do |t|
+    t.string   "code"
+    t.date     "expiration"
+    t.integer  "employee_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "driver_licenses", ["employee_id", "created_at"], :name => "index_driver_licenses_on_employee_id_and_created_at"
 
   create_table "employees", :force => true do |t|
     t.string   "name"

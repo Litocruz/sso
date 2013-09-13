@@ -1,4 +1,5 @@
 module SessionsHelper
+
   def sign_in(employee)
     cookies.permanent[:remember_token] = employee.remember_token
     self.current_employee = employee
@@ -32,6 +33,10 @@ module SessionsHelper
 
   def store_location
     session[:return_to] = request.fullpath
+  end
+
+  def admin_employee
+    redirect_to(root_path) unless current_employee.admin?
   end
 
 end

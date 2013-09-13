@@ -9,6 +9,7 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
   end
 
   def new
@@ -63,7 +64,4 @@ class EmployeesController < ApplicationController
       redirect_to(root_path) unless current_employee?(@employee)
     end
 
-    def admin_employee
-      redirect_to(root_path) unless current_employee.admin?
-    end
 end
