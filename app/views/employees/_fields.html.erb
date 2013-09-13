@@ -2,9 +2,8 @@
 
 <%= f.label :name %>
 <%= f.text_field :name %>
-
-<%= f.label :email %>
-<%= f.text_field :email %>
+<span class="input-group-addon">@</span>
+<%= f.text_field :email, class: "form-control input-lg", placeholder: "Email" %>
 
 <%= f.label :document_type %>
 <%= f.text_field :document_type %>
@@ -14,3 +13,8 @@
 
 <%= f.label :sex %>
 <%= f.text_field :sex %>
+
+<div class="input-group input-group-lg">
+    <span class="input-group-addon">@</span>
+      <input type="text" class="form-control input-lg" placeholder="Username">
+    </div>

@@ -14,6 +14,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    @driver_license = @employee.driver_licenses.build
   end
 
   def create

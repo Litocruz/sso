@@ -1,10 +1,10 @@
-<%= form_for(@driver_license) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= f.fields_for :driver_licenses do |u|  %>
   <div class="field">
-    <%= f.label :code  %>
-    <%= f.text_field :code  %>
-    <%= f.label :expiration  %>
-    <%= f.date_field :expiration  %>
+    <h3>Licencias de Conducir</h3>
+    <%= u.label :code  %>
+    <%= u.text_field :code  %>
+    <%= u.label :expiration  %>
+    <%= u.date_select :expiration  %>
   </div>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
