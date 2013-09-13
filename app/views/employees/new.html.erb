@@ -3,14 +3,12 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <%= render 'shared/driver_license' %>
-    </section>
-    <section>
     </section>
   </aside>
   <div class="span6 offset3">
     <%= form_for(@employee) do |f| %>
       <%= render 'fields', f: f %>
+      <%= render 'shared/driver_license_form', f: f %>
       <%= f.submit "Crear Empleado", class: "btn btn-large btn-primary" %>
     <% end %> 
   </div>

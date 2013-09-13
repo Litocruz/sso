@@ -1,15 +1,23 @@
 <% provide(:title, @employee.name) %>
 <div class="row">
-  <aside class="span4">
-  <section>
-  <h1>
-    <%= gravatar_for @employee %>
-    <%= @employee.name %>
-  </h1>
-  </section>
+  <aside class="span8">
+    <section>
+      <h1>
+        <%= gravatar_for @employee %>
+        <%= @employee.name %>
+      </h1>
+    </section>
+      <span class="content">
+        <p>Direccion: <%= @employee.address %></p></span>
+      <span> <p>Email: <%= @employee.email %></p></span>
+        <p>Tipo de Documento: <%= @employee.document_type %> : 
+        <%= @employee.document_number %></p>
+        <p>Estado: <%= @employee.status %></p>
+        <p>Admin: <%= @employee.admin %></p>
+      </span>
   </aside>
 
-  <div class="span8">
+  <div class="span4">
     <% if @employee.driver_licenses.any? %>
       <h3>Licencias de Conducir (<%= @employee.driver_licenses.count %>)</h3>
       <ol class="driver_licenses">

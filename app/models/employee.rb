@@ -2,6 +2,7 @@ class Employee < ActiveRecord::Base
   attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :password, :password_confirmation
   has_secure_password
   has_many :driver_licenses, dependent: :destroy #con esta opcion dependent destroy, si eliminamos un empleado, se eliminan sus licencias de conducir
+  accepts_nested_attributes_for :driver_licenses
 
   before_save :create_remember_token
 
