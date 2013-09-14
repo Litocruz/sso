@@ -39,4 +39,8 @@ module SessionsHelper
     redirect_to(root_path) unless current_employee.admin?
   end
 
+  def admin_employee?(employee)
+    current_employee.admin?
+  end
+
 end

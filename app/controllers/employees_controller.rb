@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_filter :signed_in_employee, only: [:index]
+  before_filter :signed_in_employee
   before_filter :correct_employee,   only: [:edit, :update]
   before_filter :admin_employee,     only: [:index, :edit, :update, :destroy]
 

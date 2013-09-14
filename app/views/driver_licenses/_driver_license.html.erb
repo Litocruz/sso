@@ -3,7 +3,7 @@
   <span class="timestamp">
     Obtenida hace <%= time_ago_in_words(driver_license.created_at) %>
   </span>
-  <% if current_employee?(driver_license.employee) %>
+  <% if admin_employee?(driver_license.employee) %>
     <%= link_to "Eliminar", driver_license, method: :delete,
                                      confirm: "¿Esta Seguro?",
                                      title: driver_license.code %>
