@@ -2,7 +2,7 @@ class Employee < ActiveRecord::Base
   attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :password, :password_confirmation
   has_secure_password
   has_many :driver_licenses, dependent: :destroy #con esta opcion dependent destroy, si eliminamos un empleado, se eliminan sus licencias de conducir
-  accepts_nested_attributes_for :driver_licenses
+  accepts_nested_attributes_for :driver_licenses, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
 
   before_save :create_remember_token
 
@@ -13,6 +13,7 @@ class Employee < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
   validates :document_type, presence: true
   validates :document_number, presence: true
+  default_scope {where(status: true)}
 
   private
     def create_remember_token

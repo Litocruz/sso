@@ -21,6 +21,13 @@ module SessionsHelper
     !current_employee.nil?
   end
 
+  def signed_in_employee
+    unless signed_in?
+      store_location
+      redirect_to signin_path, notice: "Debe ser administrador" 
+    end
+  end
+
   def sign_out
     self.current_employee = nil
     cookies.delete(:remember_token)
@@ -37,6 +44,10 @@ module SessionsHelper
 
   def admin_employee
     redirect_to(root_path) unless current_employee.admin?
+  end
+
+  def admin_employee?(employee)
+    current_employee.admin?
   end
 
 end

@@ -4,6 +4,7 @@
     <%= link_to employee.name, employee %>
     <% if current_employee.admin? && !current_employee?(employee)  %>
       | <%= link_to "eliminar", employee, method: :delete, confirm: "¿Esta seguro?" %>
+      | <%= link_to "Editar", edit_employee_path(employee) %>
     <% end %>
   <% end %>
 </li>
