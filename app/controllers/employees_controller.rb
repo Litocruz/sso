@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
-  before_filter :signed_in_employee, only: [:index]
-  before_filter :correct_employee,   only: [:edit, :update]
-  before_filter :admin_employee,     only: [:index, :edit, :update, :destroy]
+  before_filter :signed_in_employee
+  #before_filter :correct_employee
+  before_filter :admin_employee
 
   def index
     @employees = Employee.paginate(page: params[:page])
@@ -9,10 +9,12 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
   end
 
   def new
     @employee = Employee.new
+    3.times { @employee.driver_licenses.build}
   end
 
   def create
@@ -28,6 +30,7 @@ class EmployeesController < ApplicationController
 
   def edit
     @employee = Employee.find(params[:id])
+    1.times { @employee.driver_licenses.build}
   end
 
   def update
@@ -42,28 +45,20 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
-    empleado = Employee.find(params[:id])
-    empleado.status=0
-    flash[:success] = "Empleado eliminado"
-    redirect_to employee_path
+    @employee = Employee.find(params[:id])
+    if @employee.update_attribute(:status,false)
+      flash[:success] = "Empleado dado de baja"
+      redirect_back_or employees_path
+    else
+      render 'index'
+    end
   end
 
   #METODOS PRIVADOS
   private
-
-    def signed_in_employee
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Debe ser administrador" 
-      end
-    end
-
     def correct_employee
       @employee = Employee.find(params[:id])
       redirect_to(root_path) unless current_employee?(@employee)
     end
 
-    def admin_employee
-      redirect_to(root_path) unless current_employee.admin?
-    end
 end
