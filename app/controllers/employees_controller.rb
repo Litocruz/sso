@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     if @employee.update_attributes(params[:employee])
       flash[:success] = "Perfil Actualizado"
-      sign_in @employee
+      #sign_in @employee
       redirect_to @employee
     else
       render 'edit'
