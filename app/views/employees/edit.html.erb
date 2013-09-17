@@ -4,7 +4,9 @@
   <div class="span6 offset3">
     <%= form_for(@employee) do |f| %>
       <%= render 'fields', f: f %>
-      <%= render 'shared/driver_license_form', f: f %>
+      <%= f.fields_for :driver_licenses do |builder| %>
+        <%= render 'shared/driver_license_form', f: builder %>
+      <% end %>
       <%= f.submit "Guardar Cambios", class: "btn btn-large btn-primary" %>
     <% end %> 
 
