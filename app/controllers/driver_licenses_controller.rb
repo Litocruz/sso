@@ -1,4 +1,5 @@
 class DriverLicensesController < ApplicationController
+  before_filter :signed_in_employee
   before_filter :admin_employee
 
   def create
@@ -12,5 +13,8 @@ class DriverLicensesController < ApplicationController
   end
 
   def destroy
+    DriverLicense.find(params[:id]).destroy
+    flash[:success] = "Licencia de Conducir Eliminada"
+    redirect_back_or employees_path()
   end
 end
