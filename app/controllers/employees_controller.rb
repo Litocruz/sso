@@ -20,7 +20,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(params[:employee])
     if @employee.save
-      sign_in @employee
+      #sign_in @employee
       flash[:success] = "Nuevo Empleado Creado"
       redirect_to @employee
     else
@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     if @employee.update_attributes(params[:employee])
       flash[:success] = "Perfil Actualizado"
-      sign_in @employee
+      #sign_in @employee
       redirect_to @employee
     else
       render 'edit'
