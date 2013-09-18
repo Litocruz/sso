@@ -1,27 +1,27 @@
 module SessionsHelper
 
-  def sign_in(employee)
-    cookies.permanent[:remember_token] = employee.remember_token
-    self.current_employee = employee
+  def sign_in(user)
+    cookies.permanent[:remember_token] = user.remember_token
+    self.current_user = user
   end
 
-  def current_employee=(employee)
-    @current_employee = employee
+  def current_user=(user)
+    @current_user = user
   end
 
-  def current_employee
-    @current_employee ||= Employee.find_by_remember_token(cookies[:remember_token])
+  def current_user
+    @current_user ||= user.find_by_remember_token(cookies[:remember_token])
   end
 
-  def current_employee?(employee)
-    employee == current_employee
+  def current_user?(user)
+    user == current_user
   end
 
   def signed_in?
-    !current_employee.nil?
+    !current_user.nil?
   end
 
-  def signed_in_employee
+  def signed_in_user
     unless signed_in?
       store_location
       redirect_to signin_path, notice: "Debe ser administrador" 
@@ -29,7 +29,7 @@ module SessionsHelper
   end
 
   def sign_out
-    self.current_employee = nil
+    self.current_user = nil
     cookies.delete(:remember_token)
   end
 
@@ -42,12 +42,12 @@ module SessionsHelper
     session[:return_to] = request.original_url
   end
 
-  def admin_employee
-    redirect_to(root_path) unless current_employee.admin?
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
   end
 
-  def admin_employee?(employee)
-    current_employee.admin?
+  def admin_user?(user)
+    current_user.admin?
   end
 
 end

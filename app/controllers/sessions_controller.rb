@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    employee = Employee.find_by_document_number(params[:session][:document_number])
-    if employee && employee.authenticate(params[:session][:password])
-      sign_in employee
-      redirect_back_or employee
+    user = User.find_by_email(params[:session][:email])
+    if user && user.authenticate(params[:session][:password])
+      sign_in user
+      redirect_back_or employees_path
     else
       #flash.now hace que el mensaje no persista en subsecuentes paginas listing 8.12
-      flash.now[:error] = 'Combinacion de numero de documento y password erroneo'
+      flash.now[:error] = 'Combinacion de email y password erroneo'
       render 'new'
     end
   end
