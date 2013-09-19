@@ -1,5 +1,5 @@
 class DriverLicense < ActiveRecord::Base
-  attr_accessible :code, :expiration
+  attr_accessible :code, :expiration, :description
   belongs_to :employee
 
   validates :code, presence: true

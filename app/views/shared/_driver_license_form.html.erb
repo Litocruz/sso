@@ -3,6 +3,7 @@
   <h3>Licencia de Conducir</h3>
   <div class="driver_licenses">
     <%= b.text_field :code, placeholder: "Categoria"  %>
+    <%= b.text_field :description, placeholder: "Descripcion"  %>
     <%= b.label :expiration, 'Fecha Vencimiento'  %>
     <%= b.date_select :expiration %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918031613) do
+ActiveRecord::Schema.define(:version => 20130918235417) do
 
   create_table "driver_licenses", :force => true do |t|
     t.string   "code"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130918031613) do
     t.integer  "employee_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   add_index "driver_licenses", ["employee_id", "created_at"], :name => "index_driver_licenses_on_employee_id_and_created_at"
@@ -33,14 +34,10 @@ ActiveRecord::Schema.define(:version => 20130918031613) do
     t.datetime "updated_at",                        :null => false
     t.integer  "document_number"
     t.string   "document_type"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin"
     t.boolean  "status",          :default => true
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
-  add_index "employees", ["remember_token"], :name => "index_employees_on_remember_token"
 
   create_table "users", :force => true do |t|
     t.string   "name"

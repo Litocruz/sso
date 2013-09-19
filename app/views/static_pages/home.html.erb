@@ -6,5 +6,8 @@
       <a href="#">Software de Gestion Industrial</a>
       2013.
     </h2>
-    <%= link_to "Ingresar", signin_path, class: "btn btn-large btn-primary" %>
+
+    <% if !signed_in? %>
+      <%= link_to "Ingresar", signin_path, class: "btn btn-large btn-primary" %>
+    <% end %>  
   </div>
