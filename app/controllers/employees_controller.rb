@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  #before_filter :signed_in_user
+  before_filter :signed_in_user
   #before_filter :correct_employee
   #before_filter :admin_user
 
@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    3.times { @employee.driver_licenses.build}
+    1.times { @employee.driver_licenses.build}
   end
 
   def create

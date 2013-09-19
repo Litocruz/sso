@@ -13,8 +13,9 @@ class DriverLicensesController < ApplicationController
   end
 
   def destroy
+    driver_license=DriverLicense.find(params[:id])
     DriverLicense.find(params[:id]).destroy
     flash[:success] = "Licencia de Conducir Eliminada"
-    redirect_back_or employees_path()
+    redirect_to employee_path(driver_license.employee)
   end
 end
