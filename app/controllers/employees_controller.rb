@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   before_filter :signed_in_user
   #before_filter :correct_employee
-  #before_filter :admin_user
+ # before_filter :admin_user
 
   def index
     @employees = Employee.paginate(page: params[:page])
