@@ -5,15 +5,16 @@
       <h1>
         <%= gravatar_for @employee %>
         <%= @employee.name %>
+      | <%= link_to "Editar", edit_employee_path(@employee) %>
       </h1>
     </section>
       <span class="content">
         <p>Direccion: <%= @employee.address %></p></span>
       <span> <p>Email: <%= @employee.email %></p></span>
-        <p>Tipo de Documento: <%= @employee.document_type %> : 
+        <p>Tipo de Documento: <%= @employee.document_type %>  
         <%= @employee.document_number %></p>
         <p>Estado: <%= @employee.status %></p>
-        <p>Admin: <%= @employee.admin %></p>
+        <p>Entrenador: <%= @employee.trainer %></p>
       </span>
   </aside>
 

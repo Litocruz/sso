@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
-  before_filter :signed_in_employee
+  before_filter :signed_in_user
   #before_filter :correct_employee
-  before_filter :admin_employee
+ # before_filter :admin_user
 
   def index
     @employees = Employee.paginate(page: params[:page])
@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    3.times { @employee.driver_licenses.build}
+    1.times { @employee.driver_licenses.build}
   end
 
   def create
@@ -58,7 +58,7 @@ class EmployeesController < ApplicationController
   private
     def correct_employee
       @employee = Employee.find(params[:id])
-      redirect_to(root_path) unless current_employee?(@employee)
+      redirect_to(root_path) unless current_user?(@employee)
     end
 
 end
