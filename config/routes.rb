@@ -5,6 +5,7 @@ Sso::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
+  match '/acreatesso', to: 'users#new'
   match '/create', to: 'employees#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

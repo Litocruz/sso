@@ -2,6 +2,12 @@ class EmployeesController < ApplicationController
   before_filter :signed_in_user
   #before_filter :correct_employee
  # before_filter :admin_user
+  before_filter :load
+
+  def load
+    @employees = Employee.all
+    @employee = Employee.new
+  end
 
   def index
     @employees = Employee.paginate(page: params[:page])
