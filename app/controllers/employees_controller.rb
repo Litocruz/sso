@@ -5,6 +5,10 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.json { render json: EmployeesDatatable.new(view_context) }
+    end
   end
 
   def show

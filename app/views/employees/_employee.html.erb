@@ -1,36 +1,17 @@
-<li>
-  <% if employee.status? %>
-    <table id="employees">
-      <thead>
+<% if employee.status? %>
+    <tbody>
         <tr>
-          <th>Imagen</th>
-          <th>Nombre</th>
-          <th>Genero</th>
-          <th>Domicilio</th>
-          <th>Tipo de Documento</th>
-          <th>Numero de Documento</th>
-          <th>Entrenador</th>
-          <th>Fecha de Creación</th>
-          <th>Opciones</th>
+          <td> <%= gravatar_for employee, size: 32 %></td>
+          <td><%= link_to employee.name, employee %></td>
+          <td><%= employee.address %></td>
+          <td><%= employee.document_type %></td>
+          <td><%= employee.document_number %></td>
+          <td><%= employee.created_at.strftime("%B %e, %Y") %></td>
+          <td>
+            | <%= link_to "X", employee, method: :delete, confirm: "¿Esta seguro?" %>
+            | <%= link_to "Editar", edit_employee_path(employee) %>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td> <%= gravatar_for employee, size: 52 %></td>
-            <td><%= link_to employee.name, employee %></td>
-            <td><%= employee.sex %></td>
-            <td><%= employee.address %></td>
-            <td><%= employee.document_type %></td>
-            <td><%= employee.document_number %></td>
-            <td><%= employee.trainer %></td>
-            <td><%= employee.created_at.strftime("%B %e, %Y") %></td>
-            <td>
-              | <%= link_to "eliminar", employee, method: :delete, confirm: "¿Esta seguro?" %>
-              | <%= link_to "Editar", edit_employee_path(employee) %>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-  <% end %>
-</li>
+    </tbody>
+<% end %>
 
