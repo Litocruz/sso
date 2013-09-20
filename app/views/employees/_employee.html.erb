@@ -1,5 +1,4 @@
 <% if employee.status? %>
-    <tbody>
         <tr>
           <td> <%= gravatar_for employee, size: 32 %></td>
           <td><%= link_to employee.name, employee %></td>
@@ -12,6 +11,5 @@
             | <%= link_to "Editar", edit_employee_path(employee) %>
           </td>
         </tr>
-    </tbody>
 <% end %>
 

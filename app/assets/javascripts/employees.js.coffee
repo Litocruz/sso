@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-        $('#employees').dataTable()
-          sPaginationType: "Boostrap"
-          bJQueryUI: true
-          bProcessing: true
-          bServerSide: true
-          sAjaxSource: $('#employees').data('source')
+  $('#employees').dataTable()
+    sPaginationType: "full_number"
+    bJQueryUI: true
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#employees').data('source')
