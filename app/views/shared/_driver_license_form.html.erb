@@ -1,5 +1,5 @@
-<%#render 'shared/error_messages', object: f.object %>
-<%f.fields_for( :driver_licenses, remote: true) do |b| %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= f.fields_for( :driver_licenses, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
 	<div class="control-group">
 		<label for="code" class="control-label">Categoria</label>
 		<div class="controls">

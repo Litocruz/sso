@@ -29,20 +29,24 @@
           <%= render 'fields', f: f %>
         </div>
 
-        <!-Driver Licenses !>
+        <!-Address!>
         <div id="address" class="tab-pane">
-          <div class="control-group">
-            <label for="address" class="control-label">Address</label>
-            <div class="controls">
-                <%= f.text_area :address, :rows => 3, :cols => 40, :class => "input-xlarge" %>
-            </div>
-          </div>
+          <%= render 'address', f: f %>
         </div>
       
         <!-Driver Licenses !>
-        <div id="driver_licenses" class="tab-pane">
+        <div id="driver_license" class="tab-pane">
           <%= render 'shared/driver_license_form', f: f %>
-        </div>  
+        </div>
+        <!-Notes !>
+        <div id="notes" class="tab-pane">
+          <div class="control-group">
+            <label for="notes" class="control-label">Notes</label>
+            <div class="controls">
+                <%= f.text_area :notes, :class => "input-xlarge", rows:10, cols:100 %>
+            </div>
+          </div>
+        </div>    
 
         <div class="actions">
             <%= f.submit "Crear Empleado", class: "btn btn-primary" %>            
