@@ -13,4 +13,8 @@ class Employee < ActiveRecord::Base
   validates :document_number, presence: true
   default_scope {where(status: true)}
 
+  def gender_txt
+  ["Hombre", "Mujer"][self.sex]
+end
+
 end

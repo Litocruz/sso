@@ -1,10 +1,21 @@
-<%= render 'shared/error_messages', object: f.object %>
-<%= f.fields_for :driver_licenses, remote: true do |b| %>
-  <h3>Licencia de Conducir</h3>
-  <div class="driver_licenses">
-    <%= b.text_field :code, placeholder: "Categoria"  %>
-    <%= b.text_field :description, placeholder: "Descripcion"  %>
-    <%= b.label :expiration, 'Fecha Vencimiento'  %>
-    <%= b.date_select :expiration %>
-  </div>
+<%#render 'shared/error_messages', object: f.object %>
+<%f.fields_for( :driver_licenses, remote: true) do |b| %>
+	<div class="control-group">
+		<label for="code" class="control-label">Categoria</label>
+		<div class="controls">
+		    <%= b.text_field :code, placeholder: "Categoria", class: "input-xlarge" %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="expiration" class="control-label">Fecha Vencimiento</label>
+		<div class="controls">
+		    <%= b.date_select :expiration, class: "input-xlarge" %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="description" class="control-label">Descripción</label>
+		<div class="controls">
+		    <%= b.text_field :description, placeholder: "Descripción", class: "input-xlarge" %>
+		</div>
+	</div>
 <% end %>
