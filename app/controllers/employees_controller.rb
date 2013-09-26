@@ -7,14 +7,21 @@ class EmployeesController < ApplicationController
     #@employees = Employee.paginate(page: params[:page])
     @employees = Employee.all
     respond_to do |format|
-      format.html
+      format.html # index.html.erb
+      format.js   # index.js.erb
       format.json { render json: EmployeesDatatable.new(view_context) }
+      #format.json { render json: @employees }
     end
   end
 
   def show
     @employee = Employee.find(params[:id])
     @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
+    respond_to do |format|
+      format.html # new.html.erb
+      format.js   # new.js.erb
+      format.json { render json: @employee }
+    end
   end
 
   def new
@@ -26,11 +33,12 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(params[:employee])
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to(employees_path, notice: "Empleado creado correctamente.."  )}
+        format.html { redirect_to employees_path, flash[:success] = "Empleado creado correctamente.."  }
         format.js { flash[:success]="Empleado creado correctamente." }
-        format.json { render json: @employee, status: :created, notice: "Empleado Creado", location: @employee }
+        format.json { render json: @employee, status: :created, location: @employee }
       else
         format.html { render action: "new" }
+        format.js { render js:  flash[:error]=@employee.errors.full_messages  }
         format.json { render json: @employee.errors, notice: "podrido", status: :unprocessable_entity }
       end
     end

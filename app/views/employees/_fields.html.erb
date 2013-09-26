@@ -1,4 +1,4 @@
-<%# render 'shared/error_messages', object: f.object %>
+<%= render 'shared/error_messages', object: f.object %>
 <div class="control-group <%= 'error' if @employee.errors[:name].present? %>">
 	<label for="name" class="control-label"> Nombre Completo</label>
 	<div class="controls">
