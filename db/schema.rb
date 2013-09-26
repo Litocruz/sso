@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130924220156) do
     t.integer  "postal_code"
     t.string   "phone"
     t.string   "mobile"
-    t.string   "skipe"
+    t.string   "skype"
     t.text     "notes"
     t.integer  "country_id"
   end
