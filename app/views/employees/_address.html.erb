@@ -1,31 +1,31 @@
 <%= render 'shared/error_messages', object: f.object %>
  <div class="control-group">
-            <label for="address" class="control-label">Dirección</label>
-            <div class="controls">
-                <%= f.text_area :address, :rows => 1, :cols => 40, :class => "input-xlarge" %>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="city" class="control-label">Ciudad</label>
-            <div class="controls">
-                <%= f.text_field :city, :class => "input-xlarge", :maxlength => "50" %>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="region" class="control-label">Stado/Provincia</label>
-            <div class="controls">
-                <%= f.text_field :region, :class => "input-xlarge", :maxlength => "50" %>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="postal_code" class="control-label">ZIP/Codigo Postal</label>
-            <div class="controls">
-                <%= f.text_field :postal_code, :class => "input-small" %>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="country_id" class="control-label">Pais</label>
-            <div class="controls">
-                <%= f.select :country_id, Country.all.collect{|c| [ c.name, c.id ] }, :prompt => 'Select Country' %>
-            </div>
-        </div>
+    <label for="address" class="control-label">Dirección</label>
+    <div class="controls">
+        <%= f.text_area :address, :rows => 1, :cols => 40, :class => "input-xlarge" %>
+    </div>
+</div>
+<div class="control-group">
+    <label for="city" class="control-label">Ciudad</label>
+    <div class="controls">
+        <%= f.text_field :city, :class => "input-xlarge", :maxlength => "50" %>
+    </div>
+</div>
+<div class="control-group">
+    <label for="region" class="control-label">Stado/Provincia</label>
+    <div class="controls">
+        <%= f.text_field :region, :class => "input-xlarge", :maxlength => "50" %>
+    </div>
+</div>
+<div class="control-group">
+    <label for="postal_code" class="control-label">ZIP/Codigo Postal</label>
+    <div class="controls">
+        <%= f.text_field :postal_code, :class => "input-small" %>
+    </div>
+</div>
+<div class="control-group">
+    <label for="country_id" class="control-label">Pais</label>
+    <div class="controls">
+        <%= f.select :country_id, Country.all.collect{|c| [ c.name, c.id ] }, :prompt => 'Select Country' %>
+    </div>
+</div>

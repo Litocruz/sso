@@ -3,21 +3,22 @@
   <div class="container">
     <%= link_to "SSO Manager", root_path, id: "logo", class: "brand" %>
     <nav>
-      <div class="btn-group pull-right">
-        <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <span class="caret"></span> </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="#">Perfil</a>
-            </li>
-            <li class="divider"></li>
-            <li><%= link_to "Salir", signout_path, method: "delete" %></li>
-        </ul>
-      </div>
-
-      <ul class="nav pull-left">
-        <li class="active"><%= link_to "Inicio", root_path %></li>
-        <li></li>
-        <% if signed_in? %>
+      <% if signed_in? %>
+        <div class="btn-group pull-right">
+          <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"> <i class="icon-user"></i> <%= current_user.name %> <span class="caret"></span> </a>
+          <ul class="dropdown-menu">
+              <li>
+                  <a href="#">Perfil</a>
+              </li>
+              <li class="divider"></li>
+              <li><%= link_to "Salir", signout_path, method: "delete" %></li>
+          </ul>
+        </div>
+      <% end %>
+      <% if signed_in? %>
+        <ul class="nav pull-left">
+          <li class="active"><%= link_to "Inicio", root_path %></li>
+          <li></li>       
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Personal <b class="caret"></b>
@@ -28,12 +29,13 @@
               <li class="divider"></li>
               <li><%= link_to "Diagrama Trabajo", "#" %></li>
             </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Ingresar", signin_path %></li>
-        <% end %>
-      </ul>
-
+          </li>         
+        </ul>
+      <% else %>
+       <ul class="nav pull-right">
+            <li><%= link_to "Ingresar", signin_path %></li>
+        </ul>
+      <% end %>
     </nav>
   </div>
 </div>

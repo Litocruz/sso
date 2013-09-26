@@ -4,7 +4,8 @@ class EmployeesController < ApplicationController
  # before_filter :admin_user
 
   def index
-    @employees = Employee.paginate(page: params[:page])
+    #@employees = Employee.paginate(page: params[:page])
+    @employees = Employee.all
     respond_to do |format|
       format.html
       format.json { render json: EmployeesDatatable.new(view_context) }
@@ -23,12 +24,15 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(params[:employee])
-    if @employee.save
-      #sign_in @employee
-      flash[:success] = "Nuevo Empleado Creado"
-      redirect_to @employee
-    else
-      render 'new'
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to(employees_path, notice: "Empleado creado correctamente.."  )}
+        format.js { flash[:success]="Empleado creado correctamente." }
+        format.json { render json: @employee, status: :created, notice: "Empleado Creado", location: @employee }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @employee.errors, notice: "podrido", status: :unprocessable_entity }
+      end
     end
   end
 

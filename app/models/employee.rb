@@ -1,7 +1,7 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :driver_licenses_attributes
+  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :driver_licenses_attributes, :city, :region, :postal_code, :phone, :mobile, :skype, :notes, :country_id
   has_many :driver_licenses, dependent: :destroy #con esta opcion dependent destroy, si eliminamos un empleado, se eliminan sus licencias de conducir
-  belongs_to :countries
+  belongs_to :country
 
   accepts_nested_attributes_for :driver_licenses, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
 
@@ -12,7 +12,7 @@ class Employee < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX},
     uniqueness: { case_sensitive: false }
   validates :document_type, presence: true
-  validates :document_number, presence: true
+  validates :document_number, presence: true, uniqueness: true
   default_scope {where(status: true)}
 
   def gender_txt
