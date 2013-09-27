@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
 
   def index
     @ajax_search = params[:ajax_search] == "true" ? true : false
-    @employees = Employee.paginate(page: params[:page])
+    @employees = Employee.paginate(page: params[:page], :per_page => 10)
     #@employees = Employee.all
     respond_to do |format|
       format.html # index.html.erb
