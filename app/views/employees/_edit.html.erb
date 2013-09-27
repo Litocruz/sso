@@ -1,0 +1,17 @@
+<% provide(:title, 'Editar Empleado') %>
+<div class="page-header">
+  <h1 class="pull-left">Editar Empleado</h1>
+  <div class="pull-right">
+    <%= link_to new_employee_path, :remote => true,
+    :class => "btn btn-primary", :style => "margin-right:10px; height:15px;" do%>
+    <i class="icon-star icon-white"></i> Nuevo Empleado
+    <% end %>
+</div>
+</div>
+<div class="row-fluid">
+  <div class="span123">
+      <%= render 'form' %>
+    <%= gravatar_for @employee %>
+    <a href="http://gravatar.com/emails">Cambiar</a>
+  </div>
+</div>

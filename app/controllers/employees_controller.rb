@@ -2,10 +2,12 @@ class EmployeesController < ApplicationController
   before_filter :signed_in_user
   #before_filter :correct_employee
  # before_filter :admin_user
+  helper_method :sort_column, :sort_direction
 
   def index
-    #@employees = Employee.paginate(page: params[:page])
-    @employees = Employee.all
+    @ajax_search = params[:ajax_search] == "true" ? true : false
+    @employees = Employee.paginate(page: params[:page])
+    #@employees = Employee.all
     respond_to do |format|
       format.html # index.html.erb
       format.js   # index.js.erb
@@ -76,5 +78,17 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
       redirect_to(root_path) unless current_user?(@employee)
     end
+
+    # sort icin default column
+    def sort_column
+      # column varmi diye kontrol ediliyor, yoksa name default   
+      Employee.column_names.include?(params[:sort]) ? params[:sort] : "name"   
+    end  
+   
+    # sort icin default direction asc
+    def sort_direction
+      # karakter kontrol yapiliyor security icin  
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+    end  
 
 end

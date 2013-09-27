@@ -1,15 +1,50 @@
-<% if employee.status? %>
-        <tr>
-          <td> <%= gravatar_for employee, size: 32 %></td>
-          <td><%= link_to employee.name, employee %></td>
-          <td><%= employee.address %></td>
-          <td><%= employee.document_type %></td>
-          <td><%= employee.document_number %></td>
-          <td><%= employee.created_at.strftime("%B %e, %Y") %></td>
-          <td>
-            | <%= link_to "X", employee, method: :delete, confirm: "¿Esta seguro?" %>
-            | <%= link_to "Editar", edit_employee_path(employee) %>
-          </td>
-        </tr>
-<% end %>
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
 
+<table class="table table-striped table-bordered table-condensed sortable">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th style="width: 300px;"><%= sortable "name", "Nombre"%></th>
+            <th> Dni </th>
+            <th> Fecha Creacion </th>
+            <th style="width: 40px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if employee.status? %>
+        <tr>
+            <td valign="top"> 
+                <%= gravatar_for employee, size: 32 %> 
+            </td>
+            <td valign="top"> 
+                <%= link_to employee.name, employee, remote: true %>
+            </td>
+            <td valign="top"> 
+                <%= employee.document_type %> : <%= employee.document_number %>
+            </td>
+            <td valign="top"> 
+                <%= employee.created_at.strftime("%e, %B, %Y") %>
+            </td>
+            <td valign="top"> 
+                <%= link_to edit_employee_path(employee), :remote => true, :style=>'height: 14px;', :title=>'Editar' do%> 
+                    <i class="icon-edit"></i> 
+                <% end %> 
+                
+                <a style="height: 14px; padding-left: 5px;" title="Delete"
+                    data-backdrop="static" data-keyboard="true"
+                    href="javascript:;"
+                    onclick="show_confirm_modal('<%= employee_path(employee) %>',
+                    'Esta Seguro que quiere dar de baja el empleado : <%= employee.name %>');"> 
+                    <i class="icon-remove"></i> 
+                </a>
+           </td>
+        </tr>
+        <% end %>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5"> <%= will_paginate%> </td>
+        </tr>
+    </tfoot>
+</table>
