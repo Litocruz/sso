@@ -1,34 +1,32 @@
-<%= hidden_field_tag :direction, params[:direction] %>
-<%= hidden_field_tag :sort, params[:sort] %>
 
-        <% if employee.status? %>
-        <tr>
-            <td valign="top"> 
-                <%= gravatar_for employee, size: 22 %> 
-            </td>
-            <td valign="top"> 
-                <%= link_to employee.name, employee, remote: true %>
-            </td>
-            <td valign="top"> 
-                <%= employee.document_type %> : <%= employee.document_number %>
-            </td>
-            <td valign="top"> 
-                <%= employee.created_at.strftime("%e, %B, %Y") %>
-            </td>
-            <td valign="top"> 
-                <%= link_to edit_employee_path(employee), :remote => true, :style=>'height: 14px;', :title=>'Editar' do%> 
-                    <i class="icon-edit"></i> 
-                <% end %> 
-                
-                <a style="height: 14px; padding-left: 5px;" title="Delete"
-                    data-backdrop="static" data-keyboard="true"
-                    href="javascript:;"
-                    onclick="show_confirm_modal('<%= employee_path(employee) %>',
-                    'Esta Seguro que quiere dar de baja el empleado : <%= employee.name %>');"> 
-                    <i class="icon-remove"></i> 
-                </a>
-           </td>
-        </tr>
-        <% end %>
+<%# if employee.status? %>
+<tr>
+    <td valign="top"> 
+        <%= link_to employee.name, employee, remote: true %> 
+    </td>
+    <td valign="top"> 
+        <%= employee.email %>
+    </td>
+    <td valign="top"> 
+        <%= employee.document_type %> : <%= employee.document_number %>
+    </td>
+    <td valign="top"> 
+        <%= employee.created_at.strftime("%e %B, %Y") %>
+    </td>
+    <td valign="top"> 
+        <%= link_to edit_employee_path(employee), :remote => true, :style=>'height: 14px;', :title=>'Editar' do%> 
+            <i class="icon-edit"></i> 
+        <% end %> 
+        
+        <a style="height: 14px; padding-left: 5px;" title="Eliminar"
+            data-backdrop="static" data-keyboard="true"
+            href="javascript:;"
+            onclick="show_confirm_modal('<%= employee_path(employee) %>',
+            'Esta Seguro que quiere dar de baja el empleado : <%= employee.name %>');"> 
+            <i class="icon-remove"></i> 
+        </a>
+   </td>
+</tr>
+<%# end %>
     
 

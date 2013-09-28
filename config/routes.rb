@@ -1,4 +1,6 @@
 Sso::Application.routes.draw do
+  get "studies/new"
+
   resources :employees
   resources :driver_licenses
   resources :users

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924220156) do
+ActiveRecord::Schema.define(:version => 20130928203137) do
 
   create_table "countries", :force => true do |t|
     t.string   "code"
@@ -47,12 +47,22 @@ ActiveRecord::Schema.define(:version => 20130924220156) do
     t.integer  "postal_code"
     t.string   "phone"
     t.string   "mobile"
-    t.string   "skype"
+    t.string   "skipe"
     t.text     "notes"
     t.integer  "country_id"
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
+
+  create_table "studies", :force => true do |t|
+    t.string   "title"
+    t.string   "place"
+    t.date     "date"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "employee_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

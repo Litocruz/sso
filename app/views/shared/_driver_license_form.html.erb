@@ -1,21 +1,21 @@
-<%# render 'shared/error_messages', object: b.object %>
+<%= render 'shared/error_messages', object: b.object %>
 
-	<div class="control-group">
-		<label for="code" class="control-label">Categoria</label>
-		<div class="controls">
-		    <%= b.text_field :code, placeholder: "Categoria", class: "input-xlarge" %>
-		</div>
+<div class="control-group">
+	<label for="code" class="control-label">Categoria</label>
+	<div class="controls">
+	    <%= b.text_field :code, placeholder: "Categoria", class: "input-xlarge" %>
 	</div>
-	<div class="control-group">
-		<label for="expiration" class="control-label">Fecha Vencimiento</label>
-		<div class="controls">
-		    <%= b.date_select :expiration, class: "input-xlarge" %>
-		</div>
+</div>
+<div class="control-group">
+	<label for="expiration" class="control-label">Fecha Vencimiento</label>
+	<div class="controls">
+	    <%= b.date_select :expiration, class: "input-xlarge" %>
 	</div>
-	<div class="control-group">
-		<label for="description" class="control-label">Descripción</label>
-		<div class="controls">
-		    <%= b.text_field :description, placeholder: "Descripción", class: "input-xlarge" %>
-		</div>
+</div>
+<div class="control-group">
+	<label for="description" class="control-label">Descripción</label>
+	<div class="controls">
+	    <%= b.text_field :description, placeholder: "Descripción", class: "input-xlarge" %>
 	</div>
+</div>
 

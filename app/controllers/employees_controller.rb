@@ -6,49 +6,51 @@ class EmployeesController < ApplicationController
 
   def index
     @ajax_search = params[:ajax_search] == "true" ? true : false
-    @employees = Employee.paginate(page: params[:page], :per_page => 10)
+
+    @employees = Employee.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], :per_page => 15)
     #@employees = Employee.all
     respond_to do |format|
       format.html # index.html.erb
       format.js   # index.js.erb
-      format.json { render json: EmployeesDatatable.new(view_context) }
-      #format.json { render json: @employees }
+      format.json { render json: @employees }
     end
   end
 
   def show
     @employee = Employee.find(params[:id])
     @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
-    respond_to do |format|
-      format.html # new.html.erb
-      format.js   # new.js.erb
-      format.json { render json: @employee }
-    end
+    @studies = @employee.studies.paginate(page: params[:page])
   end
+
 
   def new
     @employee = Employee.new
     1.times { @employee.driver_licenses.build}
+    1.times { @employee.studies.build}
   end
 
   def create
     @employee = Employee.new(params[:employee])
-    respond_to do |format|
+    #respond_to do |format|
       if @employee.save
-        format.html { redirect_to employees_path, flash[:success] = "Empleado creado correctamente.."  }
-        format.js { flash[:success]="Empleado creado correctamente." }
-        format.json { render json: @employee, status: :created, location: @employee }
+        flash[:success] = "Perfil Actualizado"
+        redirect_to @employee
+     #   format.html { redirect_to employees_path, flash[:success] = "Empleado creado correctamente.."  }
+      #  format.js { flash[:success]="Empleado creado correctamente." }
+       # format.json { render json: @employee, status: :created, location: @employee }
       else
-        format.html { render action: "new" }
-        format.js { render js:  flash[:error]=@employee.errors.full_messages  }
-        format.json { render json: @employee.errors, notice: "podrido", status: :unprocessable_entity }
+        render 'new'
+        #format.html { render action: "new" }
+        #format.js { render js:  flash[:error]=@employee.errors.full_messages  }
+        #format.json { render json: @employee.errors, notice: "podrido", status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   def edit
     @employee = Employee.find(params[:id])
     1.times { @employee.driver_licenses.build}
+    1.times { @employee.studies.build}
   end
 
   def update

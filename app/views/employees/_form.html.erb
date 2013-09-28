@@ -13,7 +13,7 @@
               <a href="#studies">Estudios</a>
           </li>
           <li class="">
-              <a href="#notes">Notes</a>
+              <a href="#notes">Notas</a>
           </li>
       </ul>
       
@@ -34,12 +34,32 @@
             <%= render 'shared/driver_license_form', b: b %>
           <% end %>
         </div>
+
+        <!-Studies !>
+        <div id="studies" class="tab-pane">
+          <%= f.fields_for( :studies, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
+            <%= render 'shared/studies_form', b: b %>
+          <% end %>
+        </div>
+
         <!-Notes !>
         <div id="notes" class="tab-pane">
           <div class="control-group">
-            <label for="notes" class="control-label">Notes</label>
+            <label for="notes" class="control-label">Notas</label>
             <div class="controls">
                 <%= f.text_area :notes, :class => "input-xlarge", rows:10, cols:100 %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="phone" class="control-label">Telefono</label>
+            <div class="controls">
+                <%= f.text_field :phone, :class => "input-xlarge", rows:10, cols:100 %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="mobile" class="control-label">Celular</label>
+            <div class="controls">
+                <%= f.text_field :mobile, :class => "input-xlarge", rows:10, cols:100 %>
             </div>
           </div>
         </div>    
