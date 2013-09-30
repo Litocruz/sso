@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :driver_licenses_attributes, :city, :region, :postal_code, :phone, :mobile, :skype, :notes, :country_id, :studies_attributes
+  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :driver_licenses_attributes, :city, :region, :postal_code, :phone, :mobile, :skype, :notes, :country_id, :studies_attributes, :work_schedule, :ppe
   has_many :driver_licenses, dependent: :destroy #con esta opcion dependent destroy, si eliminamos un empleado, se eliminan sus licencias de conducir
   has_many :studies, dependent: :destroy
   belongs_to :country

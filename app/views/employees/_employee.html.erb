@@ -1,8 +1,7 @@
-
-<%# if employee.status? %>
+<% if employee.status? %>
 <tr>
     <td valign="top"> 
-        <%= link_to employee.name, employee, remote: true %> 
+        <%= link_to employee.name, employee%> 
     </td>
     <td valign="top"> 
         <%= employee.email %>
@@ -27,6 +26,6 @@
         </a>
    </td>
 </tr>
-<%# end %>
+<% end %>
     
 

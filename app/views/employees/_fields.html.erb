@@ -32,6 +32,12 @@
 	    <%= f.select :sex, [["Hombre", 0], ["Mujer", 1]], prompt: 'Seleccione una opcion' %>
 	</div>
 </div>
+<div class="control-group">
+	<label for="trainer" class="control-label"> Es Entrenador?</label>
+	<div class="controls">
+	    <%= f.check_box :trainer, {}, true, false %>
+	</div>
+</div>
 
 
 

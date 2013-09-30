@@ -4,5 +4,13 @@ class Study < ActiveRecord::Base
 
   validates :title, presence: true
 
-  default_scope order: 'driver_licenses.date DESC'
+  default_scope order: 'studies.date DESC'
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end 
 end

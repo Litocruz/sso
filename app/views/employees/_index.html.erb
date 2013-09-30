@@ -1,7 +1,6 @@
 <% provide(:title, 'Todos los Empleados') %>
 
-<%# render '/layouts/confirm_modal'%>
-<%# will_paginate %>
+<%= render '/layouts/confirm_modal'%>
 <%= form_tag  employees_path, :method => 'get', :id => "ajax_search_form" do %>
 <div class="page-header">
     <h1 class="pull-left">Empleados</h1>
@@ -36,7 +35,7 @@
             </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="5" align="center"> <%= will_paginate @employees%> </td>
+                        <td colspan="5"> <%= will_paginate @employees%> </td>
                     </tr>
                 </tfoot>
         </table>
