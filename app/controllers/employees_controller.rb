@@ -2,41 +2,55 @@ class EmployeesController < ApplicationController
   before_filter :signed_in_user
   #before_filter :correct_employee
  # before_filter :admin_user
-  before_filter :load
-
-  def load
-    @employees = Employee.all
-    @employee = Employee.new
-  end
+  helper_method :sort_column, :sort_direction
 
   def index
-    @employees = Employee.paginate(page: params[:page])
+    @ajax_search = params[:ajax_search] == "true" ? true : false
+
+    @employees = Employee.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:page], :per_page => 15)
+    #@employees = Employee.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js   # index.js.erb
+      format.json 
+    end
   end
 
   def show
     @employee = Employee.find(params[:id])
     @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
+    @studies = @employee.studies.paginate(page: params[:page])
   end
+
 
   def new
     @employee = Employee.new
     1.times { @employee.driver_licenses.build}
+    1.times { @employee.studies.build}
   end
 
   def create
     @employee = Employee.new(params[:employee])
-    if @employee.save
-      #sign_in @employee
-      flash[:success] = "Nuevo Empleado Creado"
-      redirect_to @employee
-    else
-      render 'new'
-    end
+    #respond_to do |format|
+      if @employee.save
+        flash[:success] = "Perfil Actualizado"
+        redirect_to @employee
+     #   format.html { redirect_to employees_path, flash[:success] = "Empleado creado correctamente.."  }
+      #  format.js { flash[:success]="Empleado creado correctamente." }
+       # format.json { render json: @employee, status: :created, location: @employee }
+      else
+        render 'new'
+        #format.html { render action: "new" }
+        #format.js { render js:  flash[:error]=@employee.errors.full_messages  }
+        #format.json { render json: @employee.errors, notice: "podrido", status: :unprocessable_entity }
+      end
+    #end
   end
 
   def edit
     @employee = Employee.find(params[:id])
     1.times { @employee.driver_licenses.build}
+    1.times { @employee.studies.build}
   end
 
   def update
@@ -54,10 +68,27 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     if @employee.update_attribute(:status,false)
       flash[:success] = "Empleado dado de baja"
-      redirect_back_or employees_path
+      #redirect_back_or employees_path
+      @employees = Employee.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 15)
+
+      respond_to do |format|
+        format.html { redirect_to employees_path }
+        format.js 
+        format.json
+      end
+
+    #redirect_to employees_path
+
     else
-      render 'index'
+      flash[:error]="No se pudo dar de baja el empleado"
+      respond_to do |format|
+        #render 'index'
+        format.html { render action: "index" }
+        format.js 
+        format.json 
+      end
     end
+    #redirect_back_or employees_path
   end
 
   #METODOS PRIVADOS
@@ -66,5 +97,17 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
       redirect_to(root_path) unless current_user?(@employee)
     end
+
+    # sort icin default column
+    def sort_column
+      # column varmi diye kontrol ediliyor, yoksa name default   
+      Employee.column_names.include?(params[:sort]) ? params[:sort] : "name"   
+    end  
+   
+    # sort icin default direction asc
+    def sort_direction
+      # karakter kontrol yapiliyor security icin  
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
+    end  
 
 end

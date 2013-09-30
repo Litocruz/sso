@@ -1,0 +1,9 @@
+<li>
+<span class="content">categoria: <%= study.title %> | <%= study.place %><br /> vencimiento: <%= study.description %></span>
+  <span class="timestamp">
+    Obtenida hace <%= time_ago_in_words(study.date) %>
+  </span>
+    <%= link_to "Eliminar", study, method: :delete,
+                                     confirm: "¿Esta Seguro?",
+                                     title: study.title %>
+</li>

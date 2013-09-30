@@ -1,11 +1,31 @@
-<li>
-  <% if employee.status? %>
-    <%= gravatar_for employee, size: 52 %>
-    <%= link_to employee.name, employee %>
-    <% #if current_user.admin?  %>
-      | <%= link_to "eliminar", employee, method: :delete, confirm: "¿Esta seguro?" %>
-      | <%= link_to "Editar", edit_employee_path(employee) %>
-    <% #end %>
-  <% end %>
-</li>
+<% if employee.status? %>
+<tr>
+    <td valign="top"> 
+        <%= link_to employee.name, employee%> 
+    </td>
+    <td valign="top"> 
+        <%= employee.email %>
+    </td>
+    <td valign="top"> 
+        <%= employee.document_type %> : <%= employee.document_number %>
+    </td>
+    <td valign="top"> 
+        <%= employee.created_at.strftime("%e %B, %Y") %>
+    </td>
+    <td valign="top"> 
+        <%= link_to edit_employee_path(employee), :remote => true, :style=>'height: 14px;', :title=>'Editar' do%> 
+            <i class="icon-edit"></i> 
+        <% end %> 
+        
+        <a style="height: 14px; padding-left: 5px;" title="Eliminar"
+            data-backdrop="static" data-keyboard="true"
+            href="javascript:;"
+            onclick="show_confirm_modal('<%= employee_path(employee) %>',
+            'Esta Seguro que quiere dar de baja el empleado : <%= employee.name %>');"> 
+            <i class="icon-remove"></i> 
+        </a>
+   </td>
+</tr>
+<% end %>
+    
 

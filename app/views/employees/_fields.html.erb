@@ -1,11 +1,43 @@
 <%= render 'shared/error_messages', object: f.object %>
+<div class="control-group <%= 'error' if @employee.errors[:name].present? %>">
+	<label for="name" class="control-label"> Nombre Completo</label>
+	<div class="controls">
+	    <%= f.text_field :name, :class => "input-xlarge", placeholder: "Nombre Completo" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="email" class="control-label"> Email</label>
+	<div class="controls">
+		<div class="input-prepend">
+  			<span class="add-on">@</span>
+	    		<%= f.text_field :email, :class => "span3", :style => "width: 254px; float:inherit;", placeholder: "Ingrese el Email" %>
+	    </div>
+	</div>
+</div>
+<div class="control-group">
+	<label for="document_type" class="control-label"> Tipo de Dcomuento</label>
+	<div class="controls">
+	    <%= f.text_field :document_type, :class => "input-xlarge", placeholder: "ej: 'dni' " %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="document_number" class="control-label"> Numero de Documento</label>
+	<div class="controls">
+	    <%= f.text_field :document_number, :class => "input-xlarge", placeholder: "ej: '30417420' " %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="sex" class="control-label"> Genero</label>
+	<div class="controls">
+	    <%= f.select :sex, [["Hombre", 0], ["Mujer", 1]], prompt: 'Seleccione una opcion' %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="trainer" class="control-label"> Es Entrenador?</label>
+	<div class="controls">
+	    <%= f.check_box :trainer, {}, true, false %>
+	</div>
+</div>
 
-<%= f.text_field :name, placeholder: "Nombre Completo" %>
-<%= f.text_field :email, placeholder: "Email" %>
 
-<%= f.text_field :document_type, placeholder: "Tipo de Dcomuento" %>
-
-<%= f.text_field :document_number, placeholder: "Numero de Documento" %>
-
-<%= f.text_field :sex, placeholder: "Genero" %>
 

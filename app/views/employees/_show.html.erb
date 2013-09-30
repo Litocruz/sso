@@ -1,0 +1,56 @@
+<% provide(:title, @employee.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%# gravatar_for @employee %>
+        <%= @employee.name %>
+      | <%= link_to "Editar", edit_employee_path(@employee) %>
+      </h1>
+    </section>
+    <br />
+        <p>Direccion: <%= @employee.address %></p>
+        <p>Email: <%= @employee.email %></p>
+        <p>Tipo de Documento: <%= @employee.document_type %>  
+        <%= @employee.document_number %></p>
+        <p>Estado: <%= @employee.status %></p>
+        <p>Género: <%= @employee.sex %></p>
+        <p>Entrenador: <%= @employee.trainer %></p>
+        <h2>Direccion</h2>
+        <p>Direccion: <%= @employee.address %></p>
+        <p>Pais: <%# @employee.country.name %></p>
+        <p>Ciudad: <%= @employee.city %></p>
+        <p>Estado/Provincia: <%= @employee.region %></p>
+        <h2>Trabajo</h2>
+        <p>Diagrama de Trabajo: <%= @employee.work_schedule %></p>
+        <p>EPP: <%= @employee.ppe %></p>
+        <h2>Personal</h2>
+        <p>Telefono: <%= @employee.phone %></p>
+        <p>Celular: <%= @employee.mobile %></p>
+        <p>Skype: <%= @employee.skype %></p>
+        <p>Notas: <%= @employee.notes %></p>
+
+      </span>
+  </aside>
+
+  <div class="span5">
+    <% if @employee.driver_licenses.any? %>
+      <h3>Licencias de Conducir (<%= @employee.driver_licenses.count %>)</h3>
+      <ol class="driver_licenses">
+          <%= render @driver_licenses %>
+        </ol>
+      <%= will_paginate @driver_licenses %>
+    <% end %>
+  </div>
+
+  <div class="span5">
+    <% if @employee.studies.any? %>
+      <h3>Estudios (<%= @employee.studies.count %>)</h3>
+      <ol class="studies">
+          <%= render @studies %>
+        </ol>
+      <%= will_paginate @studies %>
+    <% end %>
+  </div>
+</div>
+

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918235417) do
+ActiveRecord::Schema.define(:version => 20130930042539) do
+
+  create_table "countries", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "driver_licenses", :force => true do |t|
     t.string   "code"
@@ -35,9 +42,29 @@ ActiveRecord::Schema.define(:version => 20130918235417) do
     t.integer  "document_number"
     t.string   "document_type"
     t.boolean  "status",          :default => true
+    t.string   "city"
+    t.string   "region"
+    t.integer  "postal_code"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "skipe"
+    t.text     "notes"
+    t.integer  "country_id"
+    t.string   "work_schedule"
+    t.string   "ppe"
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
+
+  create_table "studies", :force => true do |t|
+    t.string   "title"
+    t.string   "place"
+    t.date     "date"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "employee_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -50,5 +77,17 @@ ActiveRecord::Schema.define(:version => 20130918235417) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "will_filter_filters", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.text     "data"
+    t.integer  "user_id"
+    t.string   "model_class_name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "will_filter_filters", ["user_id"], :name => "index_will_filter_filters_on_user_id"
 
 end

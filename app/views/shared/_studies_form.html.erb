@@ -1,0 +1,26 @@
+<%= render 'shared/error_messages', object: b.object %>
+
+<div class="control-group">
+	<label for="title" class="control-label">Titulo</label>
+	<div class="controls">
+	    <%= b.text_field :title, placeholder: "Ingrese el Titulo", class: "input-xlarge" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="date" class="control-label">Fecha de recibido</label>
+	<div class="controls">
+	    <%= b.date_select :date, class: "input-xlarge" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="place" class="control-label">Lugar</label>
+	<div class="controls">
+	    <%= b.text_field :place, placeholder: "Ingrese el lugar donde estudio", class: "input-xlarge" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="description" class="control-label">Descripción</label>
+	<div class="controls">
+	    <%= b.text_field :description, placeholder: "Descripción", class: "input-xlarge" %>
+	</div>
+</div>
