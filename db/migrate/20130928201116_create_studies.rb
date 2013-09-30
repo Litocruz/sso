@@ -5,6 +5,7 @@ class CreateStudies < ActiveRecord::Migration
       t.string :place
       t.date :date
       t.text :description
+      t.integer :employee_id
 
       t.timestamps
     end
