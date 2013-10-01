@@ -1,5 +1,5 @@
 <% if @ajax_search == true %>
-  $('#table_div').html('<%= escape_javascript(render("employee")) %>').append("<%= escape_javasript(@employees) %>");
+  $('#table_div').html('<%= escape_javascript(render("employee")) %>');
 <% else %>
   $('#body_content').html('<%= escape_javascript(render("index")) %>');
 <% end %>  
