@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130930042539) do
     t.integer  "postal_code"
     t.string   "phone"
     t.string   "mobile"
-    t.string   "skipe"
+    t.string   "skype"
     t.text     "notes"
     t.integer  "country_id"
     t.string   "work_schedule"
@@ -61,10 +61,12 @@ ActiveRecord::Schema.define(:version => 20130930042539) do
     t.string   "place"
     t.date     "date"
     t.text     "description"
+    t.integer  "employee_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "employee_id"
   end
+
+  add_index "studies", ["employee_id", "created_at"], :name => "index_studies_on_employee_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -77,17 +79,5 @@ ActiveRecord::Schema.define(:version => 20130930042539) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
-
-  create_table "will_filter_filters", :force => true do |t|
-    t.string   "type"
-    t.string   "name"
-    t.text     "data"
-    t.integer  "user_id"
-    t.string   "model_class_name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "will_filter_filters", ["user_id"], :name => "index_will_filter_filters_on_user_id"
 
 end
