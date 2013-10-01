@@ -24,11 +24,7 @@ class Employee < ActiveRecord::Base
 
   def self.search(search)
     if search
-      if Rails.env.development?
-        where('name LIKE ?', "%#{search}%")
-      elsif Rails.env.production?
-        where('name LIKE ?', lower("%#{search}%"))
-      end  
+      where('name LIKE ?', "%#{search}%")
     else
       scoped
     end
