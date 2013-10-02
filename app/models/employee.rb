@@ -6,7 +6,7 @@ class Employee < ActiveRecord::Base
 
   accepts_nested_attributes_for :driver_licenses, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :studies, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
-  accepts_nested_attributes_for :country
+  
 
 
   validates :name, presence: true, length: { maximum: 50}

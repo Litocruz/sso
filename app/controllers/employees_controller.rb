@@ -30,20 +30,24 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(params[:employee])
-    respond_to do |format|
+    #respond_to do |format|
       if @employee.save
         flash[:success] = "Perfil Actualizado"
-       # redirect_to @employee
+        redirect_to @employee
+=begin    
         format.html { redirect_to employees_path, flash[:success] = "Empleado creado correctamente.."  }
         format.js { flash[:success]="Empleado creado correctamente." }
         format.json { render json: @employee, status: :created, location: @employee }
+=end
       else
-        #render 'new'
+        render 'new'
+=begin
         format.html { render action: "new" }
         format.js { render js:  flash[:error]=@employee.errors.full_messages  }
         format.json { render json: {errors: @employee.errors.full_messages}, status: :unprocessable_entity }
+=end
       end
-    end
+   # end
   end
 
   def edit

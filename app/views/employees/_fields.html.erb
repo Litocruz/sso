@@ -5,7 +5,7 @@
 	    <%= f.text_field :name, :class => "input-xlarge", placeholder: "Nombre Completo" %>
 	</div>
 </div>
-<div class="control-group">
+<div class="control-group <%= 'error' if @employee.errors[:email].present? %>">
 	<label for="email" class="control-label"> Email</label>
 	<div class="controls">
 		<div class="input-prepend">
@@ -14,19 +14,19 @@
 	    </div>
 	</div>
 </div>
-<div class="control-group">
+<div class="control-group <%= 'error' if @employee.errors[:document_type].present? %>">
 	<label for="document_type" class="control-label"> Tipo de Dcomuento</label>
 	<div class="controls">
 	    <%= f.text_field :document_type, :class => "input-xlarge", placeholder: "ej: 'dni' " %>
 	</div>
 </div>
-<div class="control-group">
+<div class="control-group <%= 'error' if @employee.errors[:document_number].present? %>">
 	<label for="document_number" class="control-label"> Numero de Documento</label>
 	<div class="controls">
 	    <%= f.text_field :document_number, :class => "input-xlarge", placeholder: "ej: '30417420' " %>
 	</div>
 </div>
-<div class="control-group">
+<div class="control-group <%= 'error' if @employee.errors[:sex].present? %>">
 	<label for="sex" class="control-label"> Genero</label>
 	<div class="controls">
 	    <%= f.select :sex, [["Hombre", 0], ["Mujer", 1]], prompt: 'Seleccione una opcion' %>
