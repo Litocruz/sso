@@ -1,10 +1,32 @@
 <%= render 'shared/error_messages', object: f.object %>
+<div class="control-group <%= 'error' if @user.errors[:name].present? %>">
+  <label for="name" class="control-label">Nombre</label>
+  <div class="controls">
+      <%= f.text_field :name, placeholder: "Nombre Completo" %>
+  </div>
+</div>
+<div class="control-group <%= 'error' if @user.errors[:email].present? %>">
+  <label for="email" class="control-label">Email</label>
+  <div class="controls">
+      <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+</div>
+<div class="control-group <%= 'error' if @user.errors[:password].present? %>">
+  <label for="password" class="control-label">Contraseña</label>
+  <div class="controls">
+      <%= f.text_field :password, placeholder: "Contraseña" %>
+  </div>
+</div>
+<div class="control-group <%= 'error' if @user.errors[:password_confirmation].present? %>">
+  <label for="password_confirmation" class="control-label">Confirmar Contraseña</label>
+  <div class="controls">
+      <%= f.text_field :password_confirmation, placeholder: "Vuelve a escribir tu contraseña" %>
+  </div>
+</div>
 
-<%= f.text_field :name, placeholder: "Nombre Completo" %>
-<%= f.text_field :email, placeholder: "Email" %>
 
-<%= f.text_field :password, placeholder: "Contraseña" %>
 
-<%= f.text_field :password_confirmation, placeholder: "Vuelve a escribir tu contraseña" %>
+
+
 
 

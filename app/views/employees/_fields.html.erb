@@ -8,16 +8,13 @@
 <div class="control-group <%= 'error' if @employee.errors[:email].present? %>">
 	<label for="email" class="control-label"> Email</label>
 	<div class="controls">
-		<div class="input-prepend">
-  			<span class="add-on">@</span>
-	    		<%= f.text_field :email, :class => "span3", :style => "width: 254px; float:inherit;", placeholder: "Ingrese el Email" %>
-	    </div>
+   		<%= f.text_field :email, :class => "span3", :style => "width: 254px; float:inherit;", placeholder: "Ingrese el Email" %>
 	</div>
 </div>
 <div class="control-group <%= 'error' if @employee.errors[:document_type].present? %>">
 	<label for="document_type" class="control-label"> Tipo de Dcomuento</label>
 	<div class="controls">
-	    <%= f.text_field :document_type, :class => "input-xlarge", placeholder: "ej: 'dni' " %>
+	    <%= f.select :document_type, Employee::DOCUMENTS, prompt: 'Seleccione una opcion' %>
 	</div>
 </div>
 <div class="control-group <%= 'error' if @employee.errors[:document_number].present? %>">

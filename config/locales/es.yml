@@ -92,6 +92,18 @@ es:
       way: Vía
       way_node: Nodo de la vía
       way_tag: Etiqueta de la ví­a
+      employee: Empleado
+      user: Usuario
+    attributes:
+      employee:
+        name: Nombre
+        document_type: Tipo de Documento
+        document_number: Numero de Documento
+      user:
+        name: Nombre
+        password: Contraseña
+        password_digest: Contraseña encriptada
+        password_confirmation: Confirmar de Contraseña
   application: 
     require_cookies: 
       cookies_needed: Parece que tienes las cookies deshabilitadas. Por favor, habilita las cookies en tu navegador antes de continuar.
