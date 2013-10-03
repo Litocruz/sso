@@ -4,9 +4,10 @@
     <thead>
         <tr>
             <th style="width: 300px;"><%= sortable "name", "Nombre" %></th>
-            <th> Email </th>
+            <th> <%= sortable "email", "Email" %> </th>
             <th> Dni </th>
-            <th> Fecha Creacion </th>
+            <th> <%= sortable "trainer", "Entrenador" %></th>
+            <th> <%= sortable "created_at", "Fecha de Alta" %> </th>
             <th style="width: 40px;"></th>
         </tr>
     </thead>
@@ -22,6 +23,9 @@
             </td>
             <td valign="top"> 
                 <%= employee.document_type %> : <%= employee.document_number %>
+            </td>
+            <td valign="top"> 
+                <% if employee.trainer? %> si <% else %> no <% end %>
             </td>
             <td valign="top"> 
                 <%= employee.created_at.strftime("%e %B, %Y") %>

@@ -14,14 +14,15 @@
         <p>Tipo de Documento: <%= @employee.document_type %>  
         <%= @employee.document_number %></p>
         <p>Estado: <%= @employee.status %></p>
-        <p>Género: <%= @employee.sex %></p>
-        <p>Entrenador: <%= @employee.trainer %></p>
+        <p>Género: <%= @employee.gender_txt %></p>
+        
         <h2>Direccion</h2>
         <p>Direccion: <%= @employee.address %></p>
         <p>Pais: <%# @employee.country.name %></p>
         <p>Ciudad: <%= @employee.city %></p>
         <p>Estado/Provincia: <%= @employee.region %></p>
         <h2>Trabajo</h2>
+        <p>Entrenador: <% if @employee.trainer %>Es Entrenador<% end %></p>
         <p>Diagrama de Trabajo: <%= @employee.work_schedule %></p>
         <p>EPP: <%= @employee.ppe %></p>
         <h2>Personal</h2>
