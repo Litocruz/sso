@@ -1,0 +1,28 @@
+cat,descripcion
+A1,Motovehículos de dos ruedas hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada
+A.2.1,Motovehículos de dos ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada
+A.2.2,Motovehículos de dos ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en la clase A.2.1.
+A.3,Motovehículos de dos ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en clase A.2.2
+A.4.1,Motovehículos de tres o cuatro ruedas hasta cincuenta centímetros cúbicos ( 50 c.c.) de cilindrada.
+A.4.2,Motovehículos de tres o cuatro ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos ( 150 c.c.) de cilindrada.
+A.4.3,Motovehículos de tres o cuatro ruedas de más de ciento cincuenta centímetros cúbicos ( 150 c.c.) y hasta trescientos centímetros cúbicos ( 300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos años en la clase A.4.2
+A.4.4,Motovehículos de tres o cuatro ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en la Clase A.4.3
+P.A.1,Clase profesional para motovehículos de dos ruedas hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada.
+P.A.2.1,Clase profesional para motovehículos de dos ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada.
+P.A.2.2,Clase profesional para motovehículos de dos ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada.
+P.A.3,Clase profesional para motovehículos de dos ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada
+P.A.4.1,Clase profesional para motovehículos de tres o cuatro ruedas de hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada.
+P.A.4.2,Clase profesional para motovehículos de tres o cuatro ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada.
+P.A.4.3,Clase profesional para motovehículos de tres o cuatro ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada.
+P.A.4.4,Clase profesional para motovehículos de tres o cuatro ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada.
+B.1,"Automóviles, camionetas y utilitarios hasta tres mil quinientos kilogramos (3.500 kg.) de peso."
+B.2,"Automóviles, camionetas y utilitarios hasta tres mil quinientos kilogramos (3.500 kg.) de peso, con un acoplado de hasta setecientos cincuenta kilogramos (750 kg.) de peso, o casa rodante no motorizada."
+C,Camión sin acoplado ni semiacoplado y casas rodantes motorizadas de más de tres mil quinientos kilogramos (3.500 kg.) de peso. Incluye B.1
+D.1,"Vehículos de transporte hasta 4 pasajeros, excluido el conductor. Incluye Clase B.1"
+D.2.1,"Vehículos de transporte de 5 y hasta 20 pasajeros, excluido el conductor. Incluye clases B.1 y D.1"
+D.2.2,"Vehículos de transporte de más de 20 pasajeros, excluido el conductor. Incluye Clases B.1, D.1 y D.2.1"
+E.1,"Camiones articulados, con acoplado o semiacoplado. Incluye Clases B y C"
+E.2,Maquinaria especial no agrícola.
+F,"Vehículos correspondientes a las diversas Clases, según el caso. La licencia consignará la descripción de la adaptación que corresponda a la discapacidad de su titular."
+G1,Tractores Agricolas.
+G2,Maquinaria Especial Agricola.

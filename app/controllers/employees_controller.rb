@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
 
   def index
     @ajax_search = params[:ajax_search] == "true" ? true : false
+
     @employees = Employee.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 15)
     #@employees = Employee.all
     respond_to do |format|
@@ -26,6 +27,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
+    @codes = DriverLicenseCode.all
   end
 
   def create
@@ -54,6 +56,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
+    @codes = DriverLicenseCode
   end
 
   def update
