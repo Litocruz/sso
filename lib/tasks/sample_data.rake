@@ -5,8 +5,8 @@ namespace :db do
     99.times do |n|
       name = Faker::Name.name
       address = Faker::Address.street_address
-      email = "example-#{n+1}@testing.org"
-      document_type = "dni"
+      email = "example-#{n+1}@testings.org"
+      document_type = "Dni"
       document_number = rand(10029829) 
       password = "password"
       Employee.create!(name: name,
