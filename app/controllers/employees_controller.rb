@@ -27,7 +27,14 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
-    @codes = DriverLicenseCode.all
+    require 'csv'
+     csv_text = File.read("././lib/driver_license.csv")
+     csv = CSV.parse(csv_text, :headers => true)
+     csv.each do |row|
+     puts
+     "Categoria: #{row['cat']} -
+     Descripcion: #{row['descripcion']} -"
+     end
   end
 
   def create
@@ -56,7 +63,6 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
-    @codes = DriverLicenseCode
   end
 
   def update

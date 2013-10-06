@@ -1,5 +1,7 @@
 class DriverLicenseCode < ActiveRecord::Base
   attr_accessible :code, :description
-  belongs_to :driver_license
-  belongs_to :employee
+  has_many :driver_licenses
+  has_many :employees, through: :driver_licenses
+
+  accepts_nested_attributes_for :driver_licenses
 end

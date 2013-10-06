@@ -1,14 +1,16 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, :driver_licenses_attributes, :city, :region, :postal_code, :phone, :mobile, :skype, :notes, :country_id, :studies_attributes, :work_schedule, :ppe, :driver_license_codes_attributes
-  has_many :driver_licenses, dependent: :destroy #con esta opcion dependent destroy, si eliminamos un empleado, se eliminan sus licencias de conducir
-  has_many :studies, dependent: :destroy
-  has_many :driver_license_codes
+  attr_accessible :address, :email, :name, :sex, :trainer, :document_type, :document_number, 
+                  :city,:region, :postal_code, :phone, :mobile, :skype, :notes,:work_schedule, :ppe,
+                  :driver_licenses_attributes,  
+                  :country_id, :studies_attributes
+                  
+  has_many :driver_licenses, dependent: :destroy #si eliminamos un empleado, se eliminan sus licencias de conducir
   belongs_to :country
+  has_many :studies, dependent: :destroy
 
 
   accepts_nested_attributes_for :driver_licenses, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :studies, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
-  accepts_nested_attributes_for :driver_license_codes
   
   DOCUMENTS = ["Dni", "Lc", "Le", "Pasaporte"]
   CATEGORIES = ["B1", "B2", "B3", "Pasaporte"]
