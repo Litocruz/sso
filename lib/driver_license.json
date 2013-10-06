@@ -1,0 +1,110 @@
+[
+	{
+		"cat": "A1",
+		"descripcion": "Motovehículos de dos ruedas hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada"
+	},
+	{
+		"cat": "A.2.1",
+		"descripcion": "Motovehículos de dos ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada"
+	},
+	{
+		"cat": "A.2.2",
+		"descripcion": "Motovehículos de dos ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en la clase A.2.1."
+	},
+	{
+		"cat": "A.3",
+		"descripcion": "Motovehículos de dos ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en clase A.2.2"
+	},
+	{
+		"cat": "A.4.1",
+		"descripcion": "Motovehículos de tres o cuatro ruedas hasta cincuenta centímetros cúbicos ( 50 c.c.) de cilindrada."
+	},
+	{
+		"cat": "A.4.2",
+		"descripcion": "Motovehículos de tres o cuatro ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos ( 150 c.c.) de cilindrada."
+	},
+	{
+		"cat": "A.4.3",
+		"descripcion": "Motovehículos de tres o cuatro ruedas de más de ciento cincuenta centímetros cúbicos ( 150 c.c.) y hasta trescientos centímetros cúbicos ( 300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos años en la clase A.4.2"
+	},
+	{
+		"cat": "A.4.4",
+		"descripcion": "Motovehículos de tres o cuatro ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada. Los menores de 21 años deben acreditar haber tenido habilitación por dos (2) años en la Clase A.4.3"
+	},
+	{
+		"cat": "P.A.1",
+		"descripcion": "Clase profesional para motovehículos de dos ruedas hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.2.1",
+		"descripcion": "Clase profesional para motovehículos de dos ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.2.2",
+		"descripcion": "Clase profesional para motovehículos de dos ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.3",
+		"descripcion": "Clase profesional para motovehículos de dos ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada"
+	},
+	{
+		"cat": "P.A.4.1",
+		"descripcion": "Clase profesional para motovehículos de tres o cuatro ruedas de hasta cincuenta centímetros cúbicos (50 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.4.2",
+		"descripcion": "Clase profesional para motovehículos de tres o cuatro ruedas de más de cincuenta centímetros cúbicos (50 c.c.) y hasta ciento cincuenta centímetros cúbicos (150 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.4.3",
+		"descripcion": "Clase profesional para motovehículos de tres o cuatro ruedas de más de ciento cincuenta centímetros cúbicos (150 c.c.) y hasta trescientos centímetros cúbicos (300 c.c.) de cilindrada."
+	},
+	{
+		"cat": "P.A.4.4",
+		"descripcion": "Clase profesional para motovehículos de tres o cuatro ruedas de más de trescientos centímetros cúbicos (300 c.c.) de cilindrada."
+	},
+	{
+		"cat": "B.1",
+		"descripcion": "Automóviles, camionetas y utilitarios hasta tres mil quinientos kilogramos (3.500 kg.) de peso."
+	},
+	{
+		"cat": "B.2",
+		"descripcion": "Automóviles, camionetas y utilitarios hasta tres mil quinientos kilogramos (3.500 kg.) de peso, con un acoplado de hasta setecientos cincuenta kilogramos (750 kg.) de peso, o casa rodante no motorizada."
+	},
+	{
+		"cat": "C",
+		"descripcion": "Camión sin acoplado ni semiacoplado y casas rodantes motorizadas de más de tres mil quinientos kilogramos (3.500 kg.) de peso. Incluye B.1"
+	},
+	{
+		"cat": "D.1",
+		"descripcion": "Vehículos de transporte hasta 4 pasajeros, excluido el conductor. Incluye Clase B.1"
+	},
+	{
+		"cat": "D.2.1",
+		"descripcion": "Vehículos de transporte de 5 y hasta 20 pasajeros, excluido el conductor. Incluye clases B.1 y D.1"
+	},
+	{
+		"cat": "D.2.2",
+		"descripcion": "Vehículos de transporte de más de 20 pasajeros, excluido el conductor. Incluye Clases B.1, D.1 y D.2.1"
+	},
+	{
+		"cat": "E.1",
+		"descripcion": "Camiones articulados, con acoplado o semiacoplado. Incluye Clases B y C"
+	},
+	{
+		"cat": "E.2",
+		"descripcion": "Maquinaria especial no agrícola."
+	},
+	{
+		"cat": "F",
+		"descripcion": "Vehículos correspondientes a las diversas Clases, según el caso. La licencia consignará la descripción de la adaptación que corresponda a la discapacidad de su titular."
+	},
+	{
+		"cat": "G1",
+		"descripcion": "Tractores Agricolas."
+	},
+	{
+		"cat": "G2",
+		"descripcion": "Maquinaria Especial Agricola."
+	}
+]

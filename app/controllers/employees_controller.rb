@@ -27,14 +27,10 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
-    require 'csv'
-     csv_text = File.read("././lib/driver_license.csv")
-     csv = CSV.parse(csv_text, :headers => true)
-     csv.each do |row|
-     puts
-     "Categoria: #{row['cat']} -
-     Descripcion: #{row['descripcion']} -"
-     end
+    j = ActiveSupport::JSON
+    @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
+    @encoded = j.decode(@contents)
+    #@@data = JSON.parse(File.read(driver_license.json)) 
   end
 
   def create
@@ -61,8 +57,9 @@ class EmployeesController < ApplicationController
 
   def edit
     @employee = Employee.find(params[:id])
-    1.times { @employee.driver_licenses.build}
-    1.times { @employee.studies.build}
+    j = ActiveSupport::JSON
+    @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
+    @encoded = j.decode(@contents)
   end
 
   def update

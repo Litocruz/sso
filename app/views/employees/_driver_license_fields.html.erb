@@ -1,5 +1,10 @@
 <%= render 'shared/error_messages', object: f.object %> 
-
+<div class="control-group">
+	<label for="code" class="control-label">Categoria</label>
+	<div class="controls">
+	    <%= f.select :code, @encoded.collect { |e| [e['cat'] +" - "+ e['descripcion'], e['cat']] }, class: "input-xlarge" %>
+	</div>
+</div>
 <div class="control-group">
 	<label for="expiration" class="control-label">Fecha Vencimiento</label>
 	<div class="controls">
@@ -13,4 +18,4 @@
 	</div>
 </div>
 <hr>
-	
+
