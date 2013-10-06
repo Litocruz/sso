@@ -2,7 +2,7 @@
 <div class="control-group">
 	<label for="code" class="control-label">Categoria</label>
 	<div class="controls">
-	    <%= f.select :code, @encoded.collect { |e| [e['cat'] +" - "+ e['descripcion'], e['cat']] }, class: "input-xlarge" %>
+	    <%= f.select :code, @encoded.collect { |e| [e['cat'] +" - "+ e['descripcion'], e['cat']] }, {include_blank: 'Seleccione una Categoria'}, class: "input-xlarge" %>
 	</div>
 </div>
 <div class="control-group">
