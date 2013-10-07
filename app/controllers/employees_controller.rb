@@ -37,6 +37,8 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(params[:employee])
+    @country = Country.new
+    @country.code = @employee.country_id
     #respond_to do |format|
       if @employee.save
         flash[:success] = "Perfil Actualizado"
