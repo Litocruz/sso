@@ -30,7 +30,9 @@ class EmployeesController < ApplicationController
     j = ActiveSupport::JSON
     @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
     @encoded = j.decode(@contents)
-    #@@data = JSON.parse(File.read(driver_license.json)) 
+    c = ActiveSupport::JSON
+    @contents = File.read("#{Rails.root}/app/assets/javascripts/countries.json")
+    @countries = c.decode(@contents)
   end
 
   def create
@@ -60,6 +62,9 @@ class EmployeesController < ApplicationController
     j = ActiveSupport::JSON
     @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
     @encoded = j.decode(@contents)
+    c = ActiveSupport::JSON
+    @contents = File.read("#{Rails.root}/app/assets/javascripts/countries.json")
+    @countries = c.decode(@contents)
   end
 
   def update

@@ -2,7 +2,7 @@
 <div class="control-group" <%= 'error' if @employee.errors[:name].present? %>>
     <label for="country_id" class="control-label">Pais</label>
     <div class="controls">
-        <%= f.select :country_id, Country.all.collect{|c| [ c.name, c.id ] }, :prompt => 'Seleccione Pais' %>
+        <%= f.select :country_id, Country.@countries.collect{|c| [ c['name'], c['code'] ] }, :prompt => 'Seleccione Pais' %>
     </div>
 </div>
 <div class="control-group">
