@@ -25,7 +25,7 @@ class Employee < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX},
     uniqueness: { case_sensitive: false }
   validates :document_type, presence: true
-  validates :document_number, presence: true, uniqueness: true, numericality: true
+  validates :document_number, presence: true, uniqueness: true, numericality: true, length: {minimum: 7, maximum: 8}
   default_scope {where(status: true)}
 
   def gender_txt

@@ -35,17 +35,16 @@ class EmployeesController < ApplicationController
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
     1.times { @employee.special_habilitations.build}
-    j = ActiveSupport::JSON
-    @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
-    @encoded = j.decode(@contents)
-    e = ActiveSupport::JSON
-    @econtents = File.read("#{Rails.root}/app/assets/javascripts/special.json")
-    @special = e.decode(@econtents)
+    @special = population("special")
+    @encoded = population("driver_license")
   end
 
   def create
     @employee = Employee.new(params[:employee])
     #respond_to do |format|
+    @countries = Country.all
+    @special = population("special")
+    @encoded = population("driver_license")
     if @employee.save 
       flash[:success] = "Perfil Actualizado"
       redirect_to @employee
@@ -58,12 +57,8 @@ class EmployeesController < ApplicationController
   def edit
     @employee = Employee.find(params[:id])
     @countries = Country.all
-    j = ActiveSupport::JSON
-    @contents = File.read("#{Rails.root}/app/assets/javascripts/driver_license.json")
-    @encoded = j.decode(@contents)
-    e = ActiveSupport::JSON
-    @econtents = File.read("#{Rails.root}/app/assets/javascripts/special.json")
-    @special = e.decode(@econtents)
+    @special = population("special")
+    @encoded = population("driver_license")
   end
 
   def update
@@ -108,5 +103,11 @@ class EmployeesController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"    
     end  
+
+    def population(file)
+      j = ActiveSupport::JSON
+      contents = File.read("#{Rails.root}/app/assets/javascripts/#{file}.json")
+      encoded = j.decode(contents)
+    end
 
 end
