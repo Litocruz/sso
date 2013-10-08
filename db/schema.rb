@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008000000) do
+ActiveRecord::Schema.define(:version => 20131008160235) do
 
   create_table "countries", :force => true do |t|
     t.string   "code"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(:version => 20131008000000) do
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
+
+  create_table "medical_histories", :force => true do |t|
+    t.string   "exam"
+    t.date     "date"
+    t.boolean  "periodical"
+    t.integer  "employee_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "special_habilitations", :force => true do |t|
     t.string   "code"

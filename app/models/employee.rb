@@ -3,10 +3,11 @@ class Employee < ActiveRecord::Base
                   :city,:region, :postal_code, :phone, :mobile, :skype, :notes,:work_schedule, :ppe,
                   :driver_licenses_attributes,  
                   :country_id, :studies_attributes, 
-                  :special_habilitations_attributes
+                  :special_habilitations_attributes, :medical_history_attributes
                   
   has_many :driver_licenses, dependent: :destroy #si eliminamos un empleado, se eliminan sus licencias de conducir
   belongs_to :country
+  has_one :medical_history
   has_many :studies, dependent: :destroy
   has_many :special_habilitations, dependent: :destroy 
 
@@ -14,6 +15,7 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :driver_licenses, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :studies, :reject_if => lambda { |a| a[:title].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :country, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :medical_history, :allow_destroy => true
   accepts_nested_attributes_for :special_habilitations, :reject_if => lambda { |a| a[:code].blank? }, :allow_destroy => true
   
   DOCUMENTS = ["Dni", "Lc", "Le", "Pasaporte"]

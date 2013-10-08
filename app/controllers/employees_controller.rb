@@ -35,6 +35,7 @@ class EmployeesController < ApplicationController
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
     1.times { @employee.special_habilitations.build}
+    @employee.build_medical_history
     @special = population("special")
     @encoded = population("driver_license")
   end

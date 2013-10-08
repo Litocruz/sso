@@ -18,6 +18,9 @@
           <li class="">
               <a href="#notes">Notas</a>
           </li>
+          <li class="">
+              <a href="#health">Salud</a>
+          </li>
       </ul>
       
       <div class="tab-content" id="my-tab-content">
@@ -73,6 +76,13 @@
         <!-Notes !>
         <div id="notes" class="tab-pane">
           <%= render 'notes', f:f %>
+        </div>
+
+        <!-Health !>
+        <div id="health" class="tab-pane">
+          <%= f.fields_for( :medical_history, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
+            <%= render 'medical_fields', f:b %>
+          <% end %>
         </div>    
 
         <div class="actions">
