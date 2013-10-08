@@ -80,9 +80,14 @@
 
         <!-Health !>
         <div id="health" class="tab-pane">
-          <%= f.fields_for( :medical_history, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
-            <%= render 'medical_fields', f:b %>
+          <%= f.fields_for( :medical_histories, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
+            <%= render 'medical_history_fields', f:b %>
           <% end %>
+          <div class="control-group">
+            <div class="controls">
+                <%= link_to_add_fields "Agregar Estudio Medico", f, :medical_histories %>
+            </div>
+          </div>
         </div>    
 
         <div class="actions">

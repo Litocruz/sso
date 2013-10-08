@@ -1,5 +1,5 @@
 class MedicalHistory < ActiveRecord::Base
-  attr_accessible :date, :exam, :periodical, :employee_id
+  attr_accessible :date, :exam, :periodical
   belongs_to :employee
 
   def self.search(search)

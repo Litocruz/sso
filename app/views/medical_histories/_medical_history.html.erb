@@ -1,0 +1,11 @@
+
+<li>
+<span class="content">Examen: <%= medical_history.exam %></span>
+<dl class="dl-horizontal">	
+<dt>Fecha Exámen:</dt><dd> <%= medical_history.date.strftime("%e %B, %Y") %></dd>
+<dt><p class="text-warning"><% if medical_history.periodical %>Próxima Revisión en:</p></dt><dd> <%= distance_of_time_in_words(Time.now, medical_history.date + 1.year) %><% end %>	</dd>
+    <%= link_to "Eliminar", medical_history, method: :delete,
+                                     confirm: "¿Esta Seguro?",
+                                     title: medical_history.exam %>
+</dl>
+</li>

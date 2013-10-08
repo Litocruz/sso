@@ -21,6 +21,7 @@ class EmployeesController < ApplicationController
     @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
     @special_habilitations = @employee.special_habilitations.paginate(page: params[:page])
     @studies = @employee.studies.paginate(page: params[:page])
+    @medical_histories = @employee.medical_histories.paginate(page: params[:page])
     if @employee.country_id != nil
       @country = Country.find(@employee.country_id)
     else
@@ -35,7 +36,7 @@ class EmployeesController < ApplicationController
     1.times { @employee.driver_licenses.build}
     1.times { @employee.studies.build}
     1.times { @employee.special_habilitations.build}
-    @employee.build_medical_history
+    1.times { @employee.medical_histories.build}
     @special = population("special")
     @encoded = population("driver_license")
   end
