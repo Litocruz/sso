@@ -1,0 +1,20 @@
+<%= render 'shared/error_messages', object: f.object %> 
+<hr>
+<div class="control-group">
+	<label for="code" class="control-label">Código</label>
+	<div class="controls">
+	    <%= f.select :code, @special.collect { |e| [e['code'] +" - "+ e['descripcion'], e['code']] }, {include_blank: 'Seleccione una Habilitación'}, class: "input-xlarge" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="expiration" class="control-label">Fecha Vencimiento</label>
+	<div class="controls">
+	    <%= f.date_select :expiration, class: "input-xlarge" %>
+	</div>
+</div>
+<div class="control-group">
+	<label for="description" class="control-label">Descripción</label>
+	<div class="controls">
+	    <%= f.text_field :description, placeholder: "Descripción", class: "input-xlarge" %>
+	</div>
+</div>

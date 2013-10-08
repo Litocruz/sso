@@ -34,6 +34,16 @@
         <!-Work!>
         <div id="work" class="tab-pane">
           <%= render 'work', f: f %>
+          
+                <h3>Habilitaciones Especiales</h3>
+          <%= f.fields_for( :special_habilitations, :remote => true, :html => { :class => "form-horizontal"} ) do |b| %>
+            <%= render 'special_habilitation_fields', f: b %>
+          <% end %>
+          <div class="control-group">
+            <div class="controls">
+                <%= link_to_add_fields "Agregar Habilitacion Especial", f, :special_habilitations %>
+            </div>
+          </div>
         </div>
       
         <!-Driver Licenses !>
@@ -43,7 +53,7 @@
           <% end %>
           <div class="control-group">
             <div class="controls">
-                <%= link_to_add_fields "Nueva Licencia", f, :driver_licenses %>
+                <%= link_to_add_fields "Agregar Licencia", f, :driver_licenses %>
             </div>
           </div>
         </div>
@@ -55,7 +65,7 @@
           <% end %>
           <div class="control-group">
             <div class="controls">
-                <%= link_to_add_fields "Nuevo Estudio", f, :studies %>
+                <%= link_to_add_fields "Agregar Estudio", f, :studies %>
             </div>
           </div>
         </div>

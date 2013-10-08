@@ -1,0 +1,6 @@
+<li>
+<span class="content">categoria: <%= special_habilitation.code %>  <%= special_habilitation.description %><br /> vencimiento: <%= special_habilitation.expiration %></span>
+    <%= link_to "Eliminar", special_habilitation, method: :delete,
+                                     confirm: "¿Esta Seguro?",
+                                     title: special_habilitation.code %>
+</li>

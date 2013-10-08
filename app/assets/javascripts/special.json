@@ -1,0 +1,26 @@
+[
+	{
+		"code": "A1",
+		"descripcion": "Trabajo en espacios confinados"
+	},
+	{
+		"code": "A2",
+		"descripcion": "Trabajos eléctricos de Alta Tencion"
+	},
+	{
+		"code": "A3",
+		"descripcion": "Trabajos eléctricos de Media Tencion"
+	},
+	{
+		"code": "A4",
+		"descripcion": "Sustancias Explosivas"
+	},
+	{
+		"code": "A5",
+		"descripcion": "Sustancias Radioactivas"
+	},
+	{
+		"code": "Otro",
+		"descripcion": "Otro tipo de permiso"
+	}
+]
