@@ -17,5 +17,9 @@ namespace :db do
                        password_confirmation: password,
                        document_type: document_type)
     end
+    code="AR"
+    name="Argentina"
+    Country.create!(code: code,
+                    name: name)
   end
 end
