@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004151337) do
+ActiveRecord::Schema.define(:version => 20131008000000) do
 
   create_table "countries", :force => true do |t|
     t.string   "code"
@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(:version => 20131004151337) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "driver_licenses", :id => false, :force => true do |t|
-    t.string   "driver_license_code_id"
+  create_table "driver_licenses", :force => true do |t|
+    t.string   "code"
     t.date     "expiration"
     t.integer  "employee_id"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "description"
   end
 
@@ -41,9 +41,6 @@ ActiveRecord::Schema.define(:version => 20131004151337) do
     t.datetime "updated_at",                                :null => false
     t.integer  "document_number"
     t.string   "document_type"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin"
     t.boolean  "status",                  :default => true
     t.string   "city"
     t.string   "region"
@@ -59,13 +56,14 @@ ActiveRecord::Schema.define(:version => 20131004151337) do
   end
 
   add_index "employees", ["document_number"], :name => "index_employees_on_document_number", :unique => true
-  add_index "employees", ["remember_token"], :name => "index_employees_on_remember_token"
 
   create_table "special_habilitations", :force => true do |t|
     t.string   "code"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.date     "expiration"
+    t.integer  "employee_id"
   end
 
   create_table "studies", :force => true do |t|

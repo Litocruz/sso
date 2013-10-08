@@ -1,6 +1,6 @@
 <% provide(:title, @employee.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span5">
     <section>
       <h1>
         <%# gravatar_for @employee %>
@@ -9,15 +9,14 @@
       </h1>
     </section>
     <br />
-        <p>Direccion: <%= @employee.address %></p>
         <p>Email: <%= @employee.email %></p>
         <p>Tipo de Documento: <%= @employee.document_type %>  
         <%= @employee.document_number %></p>
-        <p>Género: <%= @employee.gender_txt %></p>
+        <p>Género: <%= @employee.gender_txt unless @employee.sex == nil %></p>
         
         <h2>Direccion</h2>
         <p>Direccion: <%= @employee.address %></p>
-        <p>Pais: <%= @employee.country.name %></p>
+        <p>Pais: <%= @country.name unless @country == nil %></p>
         <p>Ciudad: <%= @employee.city %></p>
         <p>Estado/Provincia: <%= @employee.region %></p>
         <h2>Trabajo</h2>
@@ -33,7 +32,7 @@
       </span>
   </aside>
 
-  <div class="span5">
+  <div class="span4">
     <% if @employee.driver_licenses.any? %>
       <h3>Licencias de Conducir (<%= @employee.driver_licenses.count %>)</h3>
       <ol class="driver_licenses">
@@ -43,13 +42,22 @@
     <% end %>
   </div>
 
-  <div class="span5">
+  <div class="span4">
     <% if @employee.studies.any? %>
       <h3>Estudios (<%= @employee.studies.count %>)</h3>
       <ol class="studies">
           <%= render @studies %>
         </ol>
       <%= will_paginate @studies %>
+    <% end %>
+  </div>
+   <div class="span4">
+    <% if @employee.special_habilitations.any? %>
+      <h3>Habilitaciones Especiales (<%= @employee.special_habilitations.count %>)</h3>
+      <ol class="special_habilitations">
+          <%= render @special_habilitations %>
+        </ol>
+      <%= will_paginate @special_habilitations %>
     <% end %>
   </div>
 </div>

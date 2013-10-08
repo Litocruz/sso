@@ -1,0 +1,2 @@
+module SpecialHabilitationsHelper
+end
