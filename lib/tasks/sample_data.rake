@@ -7,7 +7,7 @@ namespace :db do
       address = Faker::Address.street_address
       email = "example-#{n+1}@testing.org.net"
       document_type = "dni"
-      document_number = rand(10029829) 
+      document_number = rand(1000000...99999999) 
       password = "password"
       Employee.create!(name: name,
                        email: email,
