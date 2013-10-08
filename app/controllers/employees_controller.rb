@@ -63,6 +63,9 @@ class EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    @countries = Country.all
+    @special = population("special")
+    @encoded = population("driver_license")
     if @employee.update_attributes(params[:employee])
       flash[:success] = "Perfil Actualizado"
       #sign_in @employee
