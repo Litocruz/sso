@@ -18,10 +18,10 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
-    @driver_licenses = @employee.driver_licenses.paginate(page: params[:page])
-    @special_habilitations = @employee.special_habilitations.paginate(page: params[:page])
-    @studies = @employee.studies.paginate(page: params[:page])
-    @medical_histories = @employee.medical_histories.paginate(page: params[:page])
+    @driver_licenses = @employee.driver_licenses.paginate(page: params[:page], :per_page => 4)
+    @special_habilitations = @employee.special_habilitations.paginate(page: params[:page], :per_page => 4)
+    @studies = @employee.studies.paginate(page: params[:page], :per_page => 4)
+    @medical_histories = @employee.medical_histories.paginate(page: params[:page], :per_page => 4)
     if @employee.country_id != nil
       @country = Country.find(@employee.country_id)
     else
