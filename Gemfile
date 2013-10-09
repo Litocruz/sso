@@ -15,7 +15,7 @@ gem 'faker', '~> 1.0.1'
 
 group :development, :test do
   gem 'mysql2'
-  gem 'rspec-rails', '~> 2.9.0'
+#  gem 'rspec-rails', '~> 2.9.0'
   #gem 'ruby-debug'
 end  
 
@@ -39,7 +39,7 @@ gem 'jquery-rails', '~> 2.3.0'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
-  gem 'factory_girl_rails', '~> 1.4.0'
+ #: gem 'factory_girl_rails', '~> 1.4.0'
 end
 
 group :production do
