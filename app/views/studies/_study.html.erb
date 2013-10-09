@@ -1,9 +1,10 @@
 <li>
 <span class="content">Título: <%= study.title %>
 <dl class="dl-horizontal">
-	<dt> Lugar: </dt><dd><%= study.place %></dd><dt> Descripción: </dt><dd> <%= study.description %></dd>
+	<dt> Lugar: </dt><dd>- <%= study.place %></dd>
+	<dt> Descripción: </dt><dd>- <%= study.description %></dd>
   <span class="timestamp">
-    <dt>Obtenida hace</dt><dd> <%= time_ago_in_words(study.date) %></dd>
+    <dt>Obtenida hace</dt><dd>- <%= time_ago_in_words(study.date) %></dd>
     <dd><%= link_to "Eliminar", study, method: :delete,
                                      confirm: "¿Esta Seguro?",
                                      title: study.title %></dd>

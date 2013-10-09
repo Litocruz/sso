@@ -1,7 +1,7 @@
 <li>
 <span class="content">categoria: <%= special_habilitation.code %>
 <dl class="dl-horizontal">
-  <dt>Descripción: </dt><dd><%= special_habilitation.description %></dd> <dt>vencimiento: </dt><dd><p class="text-danger"><%= distance_of_time_in_words(Time.now,special_habilitation.expiration) %></p></dd>
+  <dt>Descripción: </dt><dd>- <%= special_habilitation.description %></dd> <dt>vencimiento: </dt><dd><p class="text-danger"><%= distance_of_time_in_words(Time.now,special_habilitation.expiration) %></p></dd>
     <dd><%= link_to "Eliminar", special_habilitation, method: :delete,
                                      confirm: "¿Esta Seguro?",
                                      title: special_habilitation.code %></dd>
